@@ -48,17 +48,17 @@
 	
 	__webpack_require__(1);
 	
-	var _riot = __webpack_require__(5);
+	__webpack_require__(5);
+	
+	var _riot = __webpack_require__(7);
 	
 	var _riot2 = _interopRequireDefault(_riot);
 	
-	__webpack_require__(6);
+	__webpack_require__(8);
 	
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 	
-	//import './flex.scss'
-	
-	document.body.innerHTML += '<app></app>';
+	document.querySelector('#footer').outerHTML += '<app></app>';
 	_riot2.default.mount('*');
 
 /***/ },
@@ -96,7 +96,7 @@
 	
 	
 	// module
-	exports.push([module.id, ".app {\n  display: fixed;\n  bottom: 0;\n  left: 0;\n  margin: 0 auto;\n  width: 80%;\n  padding: 2em;\n  border: 1px solid black;\n}\n", ""]);
+	exports.push([module.id, ".app {\n  position: fixed;\n  bottom: -100%;\n  transition: all .5s ease;\n  left: 10%;\n  margin: 0 auto;\n  width: 80%;\n  border: 1px solid black;\n  border-radius: .5em .5em 0 0;\n  border-bottom-width: 0;\n  background: white;\n  box-shadow: 0 -2px 4px rgba(0, 0, 0, 0.12), 0 -2px 4px rgba(0, 0, 0, 0.24);\n  max-height: 60vh;\n  overflow-y: auto;\n  opacity: 0;\n  min-height: 20vh;\n}\n.app.active {\n  bottom: 0;\n  opacity: 1;\n}\n* {\n  box-sizing: border-box;\n}\n", ""]);
 	
 	// exports
 
@@ -410,6 +410,46 @@
 
 /***/ },
 /* 5 */
+/***/ function(module, exports, __webpack_require__) {
+
+	// style-loader: Adds some css to the DOM by adding a <style> tag
+	
+	// load the styles
+	var content = __webpack_require__(6);
+	if(typeof content === 'string') content = [[module.id, content, '']];
+	// add the styles to the DOM
+	var update = __webpack_require__(4)(content, {});
+	if(content.locals) module.exports = content.locals;
+	// Hot Module Replacement
+	if(false) {
+		// When the styles change, update the <style> tags
+		if(!content.locals) {
+			module.hot.accept("!!./node_modules/css-loader/index.js!./node_modules/postcss-loader/index.js!./node_modules/sass-loader/index.js!./flex.scss", function() {
+				var newContent = require("!!./node_modules/css-loader/index.js!./node_modules/postcss-loader/index.js!./node_modules/sass-loader/index.js!./flex.scss");
+				if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
+				update(newContent);
+			});
+		}
+		// When the module is disposed, remove the <style> tags
+		module.hot.dispose(function() { update(); });
+	}
+
+/***/ },
+/* 6 */
+/***/ function(module, exports, __webpack_require__) {
+
+	exports = module.exports = __webpack_require__(3)();
+	// imports
+	
+	
+	// module
+	exports.push([module.id, "/* GENERIC LAYOUTS */\n[flex-offset=\"0\"] {\n  margin-left: 0%; }\n\n[flex-offset=\"5\"] {\n  margin-left: 5%; }\n\n[flex-offset=\"10\"] {\n  margin-left: 10%; }\n\n[flex-offset=\"15\"] {\n  margin-left: 15%; }\n\n[flex-offset=\"20\"] {\n  margin-left: 20%; }\n\n[flex-offset=\"25\"] {\n  margin-left: 25%; }\n\n[flex-offset=\"30\"] {\n  margin-left: 30%; }\n\n[flex-offset=\"35\"] {\n  margin-left: 35%; }\n\n[flex-offset=\"40\"] {\n  margin-left: 40%; }\n\n[flex-offset=\"45\"] {\n  margin-left: 45%; }\n\n[flex-offset=\"50\"] {\n  margin-left: 50%; }\n\n[flex-offset=\"55\"] {\n  margin-left: 55%; }\n\n[flex-offset=\"60\"] {\n  margin-left: 60%; }\n\n[flex-offset=\"65\"] {\n  margin-left: 65%; }\n\n[flex-offset=\"70\"] {\n  margin-left: 70%; }\n\n[flex-offset=\"75\"] {\n  margin-left: 75%; }\n\n[flex-offset=\"80\"] {\n  margin-left: 80%; }\n\n[flex-offset=\"85\"] {\n  margin-left: 85%; }\n\n[flex-offset=\"90\"] {\n  margin-left: 90%; }\n\n[flex-offset=\"95\"] {\n  margin-left: 95%; }\n\n[flex-offset=\"33\"] {\n  margin-left: calc(100% / 3); }\n\n[flex-offset=\"66\"] {\n  margin-left: calc(200% / 3); }\n\n[flex-order=\"0\"] {\n  -ms-flex-order: 0;\n      order: 0; }\n\n[flex-order=\"1\"] {\n  -ms-flex-order: 1;\n      order: 1; }\n\n[flex-order=\"2\"] {\n  -ms-flex-order: 2;\n      order: 2; }\n\n[flex-order=\"3\"] {\n  -ms-flex-order: 3;\n      order: 3; }\n\n[flex-order=\"4\"] {\n  -ms-flex-order: 4;\n      order: 4; }\n\n[flex-order=\"5\"] {\n  -ms-flex-order: 5;\n      order: 5; }\n\n[flex-order=\"6\"] {\n  -ms-flex-order: 6;\n      order: 6; }\n\n[flex-order=\"7\"] {\n  -ms-flex-order: 7;\n      order: 7; }\n\n[flex-order=\"8\"] {\n  -ms-flex-order: 8;\n      order: 8; }\n\n[flex-order=\"9\"] {\n  -ms-flex-order: 9;\n      order: 9; }\n\n[flex-order=\"10\"] {\n  -ms-flex-order: 10;\n      order: 10; }\n\n[flex-order=\"11\"] {\n  -ms-flex-order: 11;\n      order: 11; }\n\n[flex-order=\"12\"] {\n  -ms-flex-order: 12;\n      order: 12; }\n\n[flex-order=\"13\"] {\n  -ms-flex-order: 13;\n      order: 13; }\n\n[flex-order=\"14\"] {\n  -ms-flex-order: 14;\n      order: 14; }\n\n[flex-order=\"15\"] {\n  -ms-flex-order: 15;\n      order: 15; }\n\n[flex-order=\"16\"] {\n  -ms-flex-order: 16;\n      order: 16; }\n\n[flex-order=\"17\"] {\n  -ms-flex-order: 17;\n      order: 17; }\n\n[flex-order=\"18\"] {\n  -ms-flex-order: 18;\n      order: 18; }\n\n[flex-order=\"19\"] {\n  -ms-flex-order: 19;\n      order: 19; }\n\n[flex-order=\"20\"] {\n  -ms-flex-order: 20;\n      order: 20; }\n\n[layout] {\n  display: -ms-flexbox;\n  display: flex;\n  -ms-flex-wrap: wrap;\n      flex-wrap: wrap; }\n\n[layout] > * {\n  box-sizing: border-box; }\n\n[layout=\"column\"] {\n  -ms-flex-direction: column;\n      flex-direction: column; }\n\n[layout=\"row\"] {\n  -ms-flex-direction: row;\n      flex-direction: row; }\n\n[layout-align] {\n  -ms-flex-pack: start;\n      justify-content: flex-start;\n  -ms-flex-line-pack: stretch;\n      align-content: stretch;\n  -ms-flex-align: stretch;\n      align-items: stretch; }\n\n[layout-align^=\"start\"] {\n  -ms-flex-pack: start;\n      justify-content: flex-start; }\n\n[layout-align^=\"center\"] {\n  -ms-flex-pack: center;\n      justify-content: center; }\n\n[layout-align^=\"end\"] {\n  -ms-flex-pack: end;\n      justify-content: flex-end; }\n\n[layout-align^=\"space-around\"] {\n  -ms-flex-pack: distribute;\n      justify-content: space-around; }\n\n[layout-align^=\"space-between\"] {\n  -ms-flex-pack: justify;\n      justify-content: space-between; }\n\n[layout-align$=\"start\"] {\n  -ms-flex-align: start;\n      align-items: flex-start;\n  -ms-flex-line-pack: start;\n      align-content: flex-start; }\n\n[layout-align$=\"center\"] {\n  -ms-flex-align: center;\n      align-items: center;\n  -ms-flex-line-pack: center;\n      align-content: center;\n  max-width: 100%; }\n\n[layout-align$=\"center\"] > * {\n  max-width: 100%; }\n\n[layout-align$=\"end\"] {\n  -ms-flex-align: end;\n      align-items: flex-end;\n  -ms-flex-line-pack: end;\n      align-content: flex-end; }\n\n[layout-align=\"start\"],\n[layout-align=\"end\"],\n[layout-align=\"center\"],\n[layout-align=\"space-around\"],\n[layout-align=\"space-between\"] {\n  -ms-flex-align: stretch;\n      align-items: stretch;\n  -ms-flex-line-pack: stretch;\n      align-content: stretch; }\n\n[flex] {\n  -ms-flex: 1;\n      flex: 1; }\n\n[flex-start] {\n  margin-bottom: auto; }\n\n[flex-end] {\n  margin-top: auto; }\n\n[flex-none] {\n  -ms-flex: 0 0 auto;\n      flex: 0 0 auto; }\n\n[flex-initial] {\n  -ms-flex: 0 1 auto;\n      flex: 0 1 auto; }\n\n[flex-noshrink] {\n  -ms-flex: 1 0 auto;\n      flex: 1 0 auto; }\n\n[flex-auto] {\n  -ms-flex: 1 1 auto;\n      flex: 1 1 auto; }\n\n[flex-grow] {\n  -ms-flex: 1 1 100%;\n      flex: 1 1 100%; }\n\n[flex],\n[layout=\"row\"] > [flex],\n[layout=\"row\"] > [flex] {\n  max-height: 100%; }\n\n[layout=\"column\"] > [flex],\n[layout=\"column\"] > [flex] {\n  max-width: 100%; }\n\n[layout=\"row\"] > [flex=\"5\"],\n[layout=\"row\"] > [flex=\"5\"],\n[layout=\"row\"] > [flex=\"5\"] {\n  -ms-flex: 1 1 5%;\n      flex: 1 1 5%;\n  max-width: 5%; }\n\n[layout=\"column\"] > [flex=\"5\"],\n[layout=\"column\"] > [flex=\"5\"],\n[layout=\"column\"] > [flex=\"5\"] {\n  -ms-flex: 1 1 5%;\n      flex: 1 1 5%;\n  max-height: 5%; }\n\n[layout=\"row\"] > [flex=\"10\"],\n[layout=\"row\"] > [flex=\"10\"],\n[layout=\"row\"] > [flex=\"10\"] {\n  -ms-flex: 1 1 10%;\n      flex: 1 1 10%;\n  max-width: 10%; }\n\n[layout=\"column\"] > [flex=\"10\"],\n[layout=\"column\"] > [flex=\"10\"],\n[layout=\"column\"] > [flex=\"10\"] {\n  -ms-flex: 1 1 10%;\n      flex: 1 1 10%;\n  max-height: 10%; }\n\n[layout=\"row\"] > [flex=\"15\"],\n[layout=\"row\"] > [flex=\"15\"],\n[layout=\"row\"] > [flex=\"15\"] {\n  -ms-flex: 1 1 15%;\n      flex: 1 1 15%;\n  max-width: 15%; }\n\n[layout=\"column\"] > [flex=\"15\"],\n[layout=\"column\"] > [flex=\"15\"],\n[layout=\"column\"] > [flex=\"15\"] {\n  -ms-flex: 1 1 15%;\n      flex: 1 1 15%;\n  max-height: 15%; }\n\n[layout=\"row\"] > [flex=\"20\"],\n[layout=\"row\"] > [flex=\"20\"],\n[layout=\"row\"] > [flex=\"20\"] {\n  -ms-flex: 1 1 20%;\n      flex: 1 1 20%;\n  max-width: 20%; }\n\n[layout=\"column\"] > [flex=\"20\"],\n[layout=\"column\"] > [flex=\"20\"],\n[layout=\"column\"] > [flex=\"20\"] {\n  -ms-flex: 1 1 20%;\n      flex: 1 1 20%;\n  max-height: 20%; }\n\n[layout=\"row\"] > [flex=\"25\"],\n[layout=\"row\"] > [flex=\"25\"],\n[layout=\"row\"] > [flex=\"25\"] {\n  -ms-flex: 1 1 25%;\n      flex: 1 1 25%;\n  max-width: 25%; }\n\n[layout=\"column\"] > [flex=\"25\"],\n[layout=\"column\"] > [flex=\"25\"],\n[layout=\"column\"] > [flex=\"25\"] {\n  -ms-flex: 1 1 25%;\n      flex: 1 1 25%;\n  max-height: 25%; }\n\n[layout=\"row\"] > [flex=\"30\"],\n[layout=\"row\"] > [flex=\"30\"],\n[layout=\"row\"] > [flex=\"30\"] {\n  -ms-flex: 1 1 30%;\n      flex: 1 1 30%;\n  max-width: 30%; }\n\n[layout=\"column\"] > [flex=\"30\"],\n[layout=\"column\"] > [flex=\"30\"],\n[layout=\"column\"] > [flex=\"30\"] {\n  -ms-flex: 1 1 30%;\n      flex: 1 1 30%;\n  max-height: 30%; }\n\n[layout=\"row\"] > [flex=\"35\"],\n[layout=\"row\"] > [flex=\"35\"],\n[layout=\"row\"] > [flex=\"35\"] {\n  -ms-flex: 1 1 35%;\n      flex: 1 1 35%;\n  max-width: 35%; }\n\n[layout=\"column\"] > [flex=\"35\"],\n[layout=\"column\"] > [flex=\"35\"],\n[layout=\"column\"] > [flex=\"35\"] {\n  -ms-flex: 1 1 35%;\n      flex: 1 1 35%;\n  max-height: 35%; }\n\n[layout=\"row\"] > [flex=\"40\"],\n[layout=\"row\"] > [flex=\"40\"],\n[layout=\"row\"] > [flex=\"40\"] {\n  -ms-flex: 1 1 40%;\n      flex: 1 1 40%;\n  max-width: 40%; }\n\n[layout=\"column\"] > [flex=\"40\"],\n[layout=\"column\"] > [flex=\"40\"],\n[layout=\"column\"] > [flex=\"40\"] {\n  -ms-flex: 1 1 40%;\n      flex: 1 1 40%;\n  max-height: 40%; }\n\n[layout=\"row\"] > [flex=\"45\"],\n[layout=\"row\"] > [flex=\"45\"],\n[layout=\"row\"] > [flex=\"45\"] {\n  -ms-flex: 1 1 45%;\n      flex: 1 1 45%;\n  max-width: 45%; }\n\n[layout=\"column\"] > [flex=\"45\"],\n[layout=\"column\"] > [flex=\"45\"],\n[layout=\"column\"] > [flex=\"45\"] {\n  -ms-flex: 1 1 45%;\n      flex: 1 1 45%;\n  max-height: 45%; }\n\n[layout=\"row\"] > [flex=\"50\"],\n[layout=\"row\"] > [flex=\"50\"],\n[layout=\"row\"] > [flex=\"50\"] {\n  -ms-flex: 1 1 50%;\n      flex: 1 1 50%;\n  max-width: 50%; }\n\n[layout=\"column\"] > [flex=\"50\"],\n[layout=\"column\"] > [flex=\"50\"],\n[layout=\"column\"] > [flex=\"50\"] {\n  -ms-flex: 1 1 50%;\n      flex: 1 1 50%;\n  max-height: 50%; }\n\n[layout=\"row\"] > [flex=\"55\"],\n[layout=\"row\"] > [flex=\"55\"],\n[layout=\"row\"] > [flex=\"55\"] {\n  -ms-flex: 1 1 55%;\n      flex: 1 1 55%;\n  max-width: 55%; }\n\n[layout=\"column\"] > [flex=\"55\"],\n[layout=\"column\"] > [flex=\"55\"],\n[layout=\"column\"] > [flex=\"55\"] {\n  -ms-flex: 1 1 55%;\n      flex: 1 1 55%;\n  max-height: 55%; }\n\n[layout=\"row\"] > [flex=\"60\"],\n[layout=\"row\"] > [flex=\"60\"],\n[layout=\"row\"] > [flex=\"60\"] {\n  -ms-flex: 1 1 60%;\n      flex: 1 1 60%;\n  max-width: 60%; }\n\n[layout=\"column\"] > [flex=\"60\"],\n[layout=\"column\"] > [flex=\"60\"],\n[layout=\"column\"] > [flex=\"60\"] {\n  -ms-flex: 1 1 60%;\n      flex: 1 1 60%;\n  max-height: 60%; }\n\n[layout=\"row\"] > [flex=\"65\"],\n[layout=\"row\"] > [flex=\"65\"],\n[layout=\"row\"] > [flex=\"65\"] {\n  -ms-flex: 1 1 65%;\n      flex: 1 1 65%;\n  max-width: 65%; }\n\n[layout=\"column\"] > [flex=\"65\"],\n[layout=\"column\"] > [flex=\"65\"],\n[layout=\"column\"] > [flex=\"65\"] {\n  -ms-flex: 1 1 65%;\n      flex: 1 1 65%;\n  max-height: 65%; }\n\n[layout=\"row\"] > [flex=\"70\"],\n[layout=\"row\"] > [flex=\"70\"],\n[layout=\"row\"] > [flex=\"70\"] {\n  -ms-flex: 1 1 70%;\n      flex: 1 1 70%;\n  max-width: 70%; }\n\n[layout=\"column\"] > [flex=\"70\"],\n[layout=\"column\"] > [flex=\"70\"],\n[layout=\"column\"] > [flex=\"70\"] {\n  -ms-flex: 1 1 70%;\n      flex: 1 1 70%;\n  max-height: 70%; }\n\n[layout=\"row\"] > [flex=\"75\"],\n[layout=\"row\"] > [flex=\"75\"],\n[layout=\"row\"] > [flex=\"75\"] {\n  -ms-flex: 1 1 75%;\n      flex: 1 1 75%;\n  max-width: 75%; }\n\n[layout=\"column\"] > [flex=\"75\"],\n[layout=\"column\"] > [flex=\"75\"],\n[layout=\"column\"] > [flex=\"75\"] {\n  -ms-flex: 1 1 75%;\n      flex: 1 1 75%;\n  max-height: 75%; }\n\n[layout=\"row\"] > [flex=\"80\"],\n[layout=\"row\"] > [flex=\"80\"],\n[layout=\"row\"] > [flex=\"80\"] {\n  -ms-flex: 1 1 80%;\n      flex: 1 1 80%;\n  max-width: 80%; }\n\n[layout=\"column\"] > [flex=\"80\"],\n[layout=\"column\"] > [flex=\"80\"],\n[layout=\"column\"] > [flex=\"80\"] {\n  -ms-flex: 1 1 80%;\n      flex: 1 1 80%;\n  max-height: 80%; }\n\n[layout=\"row\"] > [flex=\"85\"],\n[layout=\"row\"] > [flex=\"85\"],\n[layout=\"row\"] > [flex=\"85\"] {\n  -ms-flex: 1 1 85%;\n      flex: 1 1 85%;\n  max-width: 85%; }\n\n[layout=\"column\"] > [flex=\"85\"],\n[layout=\"column\"] > [flex=\"85\"],\n[layout=\"column\"] > [flex=\"85\"] {\n  -ms-flex: 1 1 85%;\n      flex: 1 1 85%;\n  max-height: 85%; }\n\n[layout=\"row\"] > [flex=\"90\"],\n[layout=\"row\"] > [flex=\"90\"],\n[layout=\"row\"] > [flex=\"90\"] {\n  -ms-flex: 1 1 90%;\n      flex: 1 1 90%;\n  max-width: 90%; }\n\n[layout=\"column\"] > [flex=\"90\"],\n[layout=\"column\"] > [flex=\"90\"],\n[layout=\"column\"] > [flex=\"90\"] {\n  -ms-flex: 1 1 90%;\n      flex: 1 1 90%;\n  max-height: 90%; }\n\n[layout=\"row\"] > [flex=\"95\"],\n[layout=\"row\"] > [flex=\"95\"],\n[layout=\"row\"] > [flex=\"95\"] {\n  -ms-flex: 1 1 95%;\n      flex: 1 1 95%;\n  max-width: 95%; }\n\n[layout=\"column\"] > [flex=\"95\"],\n[layout=\"column\"] > [flex=\"95\"],\n[layout=\"column\"] > [flex=\"95\"] {\n  -ms-flex: 1 1 95%;\n      flex: 1 1 95%;\n  max-height: 95%; }\n\n[layout=\"row\"] > [flex=\"100\"],\n[layout=\"row\"] > [flex=\"100\"],\n[layout=\"row\"] > [flex=\"100\"] {\n  -ms-flex: 1 1 100%;\n      flex: 1 1 100%;\n  max-width: 100%; }\n\n[layout=\"column\"] > [flex=\"100\"],\n[layout=\"column\"] > [flex=\"100\"],\n[layout=\"column\"] > [flex=\"100\"] {\n  -ms-flex: 1 1 100%;\n      flex: 1 1 100%;\n  max-height: 100%; }\n\n[layout=\"row\"] > [flex=\"33\"],\n[layout=\"row\"] > [flex=\"33\"],\n[layout=\"row\"] > [flex=\"33\"] {\n  -ms-flex: 1 1 33.33%;\n      flex: 1 1 33.33%;\n  max-width: 33.33%; }\n\n[layout=\"column\"] > [flex=\"33\"],\n[layout=\"column\"] > [flex=\"33\"],\n[layout=\"column\"] > [flex=\"33\"] {\n  -ms-flex: 1 1 33.33%;\n      flex: 1 1 33.33%;\n  max-height: 33.33%; }\n\n[layout=\"row\"] > [flex=\"66\"],\n[layout=\"row\"] > [flex=\"66\"],\n[layout=\"row\"] > [flex=\"66\"] {\n  -ms-flex: 1 1 66.66%;\n      flex: 1 1 66.66%;\n  max-width: 66.66%; }\n\n[layout=\"column\"] > [flex=\"66\"],\n[layout=\"column\"] > [flex=\"66\"],\n[layout=\"column\"] > [flex=\"66\"] {\n  -ms-flex: 1 1 66.66%;\n      flex: 1 1 66.66%;\n  max-height: 66.66%; }\n\n[hide] {\n  display: none; }\n\n/* RESPONSIVE LAYOUTS */\n[layout-padding] > [flex-sm] {\n  padding: 0.25em; }\n\n[layout-padding],\n[layout-padding] > [flex],\n[layout-padding] > [flex-gt-sm],\n[layout-padding] > [flex-md] {\n  padding: 0.5em; }\n\n[layout-padding] > [flex-gt-md],\n[layout-padding] > [flex-lg] {\n  padding: 1em; }\n\n[layout-margin] > [flex-sm] {\n  margin: 0.25em; }\n\n[layout-margin],\n[layout-margin] > [flex],\n[layout-margin] > [flex-gt-sm],\n[layout-margin] > [flex-md] {\n  margin: 0.5em; }\n\n[layout-margin] > [flex-gt-md],\n[layout-margin] > [flex-lg] {\n  margin: 1em; }\n\n[layout-nowrap] {\n  -ms-flex-wrap: nowrap;\n      flex-wrap: nowrap; }\n", ""]);
+	
+	// exports
+
+
+/***/ },
+/* 7 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var __WEBPACK_AMD_DEFINE_FACTORY__, __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;/* WEBPACK VAR INJECTION */(function(riot) {'use strict';
@@ -3346,21 +3386,31 @@
 	
 	  Object.defineProperty(exports, '__esModule', { value: true });
 	});
-	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(5)))
+	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(7)))
 
 /***/ },
-/* 6 */
+/* 8 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/* WEBPACK VAR INJECTION */(function(riot) {'use strict';
 	
-	riot.tag2('app', '<div class="app"> <b onclick="{copyTemplate}">Copy current template</b> </div>', 'app,[data-is="app"]{ display: block; }', '', function (opts) {
+	riot.tag2('app', '<div layout="row" class="app {fadeIn ? \'active\' : \'\'}"> <div layout="column" flex="25" style="background:hsl(2, 70%, 66%)"> <a href="">Template1</a> <a href="">Template2</a> <a href="">Template3</a> <a href="">Template4</a> <a href="">Template5</a> </div> <div flex="75"> <b onclick="{copyTemplate}">Copy current template</b> </div> </div>', 'app,[data-is="app"]{ display: block; }', '', function (opts) {
+	    var _this = this;
+	
 	    this.copyTemplate = function (e) {
 	        var x = document.querySelector('#wysiwygTextarea_ifr').contentWindow.document.querySelector('#tinymce').innerHTML;
 	        console.log(x);
 	    }.bind(this);
+	
+	    this.fadeIn = false;
+	    this.editor = document.querySelector('#wysiwygTextarea_ifr').contentWindow.document.querySelector('#tinymce');
+	
+	    this.on('mount', function () {
+	        _this.fadeIn = true;
+	        _this.update();
+	    });
 	});
-	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(5)))
+	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(7)))
 
 /***/ }
 /******/ ]);

@@ -1,12 +1,52 @@
 <app>
-    <div class="app">
-        <b onclick={copyTemplate}>Copy current template</b>
+    <div layout="row" class="app {fadeIn ? 'active' : ''}">
+        <menu layout="column" flex="25">
+            <a class={active: active.name == template.name} onclick={previewTemplate} each={template in templates} layout="row" layout-align="space-between">
+                <span>{template.name}</span>
+                <span class="button">&times;</span>
+            </a>
+        </menu>
+        <div flex="75">
+            <div class="settings">
+                <b onclick={copyTemplate}>Copy current template</b>
+                <a class="button">Apply Template</a>
+                <a class="button">Save Template</a>
+            </div>
+            <div ref="preview" id="preview">
+
+            </div>
+        </div>
     </div>
     <script>
         copyTemplate(e) {
             var x = document.querySelector('#wysiwygTextarea_ifr').contentWindow.document.querySelector('#tinymce').innerHTML
             console.log(x);
         }
+
+        this.templates = [
+            {name: 'Blog with Permissions', template: '<h1>Exampasd asd asd asd asd asd asd asd asd asd asd le1 locked</h1><h1>Example1 locked</h1><h1>Example1 locked</h1><h1>Example1 locked</h1><h1>Example1 locked</h1><h1>Example1 locked</h1>'},
+            {name: 'Blogpost', template: '<h1>Example2</h1>'},
+        ]
+
+        this.active = this.templates[0]
+
+        previewTemplate(e) {
+            this.refs.preview.innerHTML = e.item.template.template
+        }
+
+        this.fadeIn = false
+        try {
+            this.editor = document.querySelector('#wysiwygTextarea_ifr').contentWindow.document.querySelector('#tinymce')
+        } catch (e) {
+            this.editor = ''
+            console.log('no editor')
+        }
+
+        this.on('mount', ()=>{
+            this.fadeIn = true
+            this.update()
+        })
+
     </script>
     <style>
         :scope {

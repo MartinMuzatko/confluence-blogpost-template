@@ -1,9 +1,73 @@
+@color: hsl(2, 70%, 66%);
+
 .app {
-    display: fixed;
-    bottom: 0;
-    left: 0;
+    position: fixed;
+    bottom: -100%;
+    transition: all .5s ease;
+    left: 10%;
     margin: 0 auto;
     width: 80%;
-    padding: 2em;
     border: 1px solid black;
+    border-radius: .5em .5em 0 0;
+    border-bottom-width: 0;
+    background: white;
+    box-shadow: 0 -2px 4px rgba(0,0,0,.12),0 -2px 4px rgba(0,0,0,.24);
+    max-height: 60vh;
+    overflow-y: auto;
+    opacity: 0;
+    min-height: 40vh;
+    &.active {
+        bottom: 0;
+        opacity: 1;
+    }
+}
+
+.app menu {
+    margin: 0;
+    background: @color;
+    padding: 0;
+    a {
+        cursor: pointer;
+        padding: .5em;
+        line-height: 1.5;
+        &:hover, .active {
+            background: white;
+        }
+    }
+    .button {
+        border-radius: 100%;
+        line-height: 1;
+    }
+}
+
+.app .settings {
+    background: hsl(0,0%,5%);
+    color: white;
+    padding: .5em;
+}
+
+.app .button {
+    &:hover {
+        background: @color;
+        color: white;
+    }
+}
+
+.app .button {
+    background: white;
+    color: @color;
+    border-radius: .25em;
+    padding: .25em .5em;
+    display: inline-block;
+    cursor: pointer;
+}
+
+.app #preview {
+    max-width: 100%;
+    max-height: 100%;
+    overflow: auto;
+}
+
+* {
+    box-sizing: border-box;
 }
