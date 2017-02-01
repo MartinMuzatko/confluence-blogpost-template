@@ -96,7 +96,7 @@
 	
 	
 	// module
-	exports.push([module.id, ".app {\n  position: fixed;\n  bottom: -100%;\n  transition: all .5s ease;\n  left: 10%;\n  margin: 0 auto;\n  width: 80%;\n  border: 1px solid black;\n  border-radius: .5em .5em 0 0;\n  border-bottom-width: 0;\n  background: white;\n  box-shadow: 0 -2px 4px rgba(0, 0, 0, 0.12), 0 -2px 4px rgba(0, 0, 0, 0.24);\n  max-height: 60vh;\n  overflow-y: auto;\n  opacity: 0;\n  min-height: 20vh;\n}\n.app.active {\n  bottom: 0;\n  opacity: 1;\n}\n* {\n  box-sizing: border-box;\n}\n", ""]);
+	exports.push([module.id, ".app {\n  position: fixed;\n  bottom: -100%;\n  transition: all .5s ease;\n  left: 10%;\n  margin: 0 auto;\n  width: 80%;\n  border: 1px solid black;\n  border-radius: .5em .5em 0 0;\n  border-bottom-width: 0;\n  background: white;\n  box-shadow: 0 -2px 4px rgba(0, 0, 0, 0.12), 0 -2px 4px rgba(0, 0, 0, 0.24);\n  max-height: 60vh;\n  overflow-y: auto;\n  opacity: 0;\n  min-height: 40vh;\n}\n.app.active {\n  bottom: 0;\n  opacity: 1;\n}\n.app menu {\n  margin: 0;\n  background: #e5706c;\n  padding: 0;\n}\n.app menu a {\n  cursor: pointer;\n  padding: .5em;\n  line-height: 1.5;\n}\n.app menu a:hover,\n.app menu a .active {\n  background: white;\n}\n.app menu .button {\n  border-radius: 100%;\n  line-height: 1;\n}\n.app .settings {\n  background: #0d0d0d;\n  color: white;\n  padding: .5em;\n}\n.app .button:hover {\n  background: #e5706c;\n  color: white;\n}\n.app .button {\n  background: white;\n  color: #e5706c;\n  border-radius: .25em;\n  padding: .25em .5em;\n  display: inline-block;\n  cursor: pointer;\n}\n.app #preview {\n  max-width: 100%;\n  max-height: 100%;\n  overflow: auto;\n}\n* {\n  box-sizing: border-box;\n}\n", ""]);
 	
 	// exports
 
@@ -3394,7 +3394,7 @@
 
 	/* WEBPACK VAR INJECTION */(function(riot) {'use strict';
 	
-	riot.tag2('app', '<div layout="row" class="app {fadeIn ? \'active\' : \'\'}"> <div layout="column" flex="25" style="background:hsl(2, 70%, 66%)"> <a href="">Template1</a> <a href="">Template2</a> <a href="">Template3</a> <a href="">Template4</a> <a href="">Template5</a> </div> <div flex="75"> <b onclick="{copyTemplate}">Copy current template</b> </div> </div>', 'app,[data-is="app"]{ display: block; }', '', function (opts) {
+	riot.tag2('app', '<div layout="row" class="app {fadeIn ? \'active\' : \'\'}"> <menu layout="column" flex="25"> <a class="{active: active.name == template.name}" onclick="{previewTemplate}" each="{template in templates}" layout="row" layout-align="space-between"> <span>{template.name}</span> <span class="button">&times;</span> </a> </menu> <div flex="75"> <div class="settings"> <b onclick="{copyTemplate}">Copy current template</b> <a class="button">Apply Template</a> <a class="button">Save Template</a> </div> <div ref="preview" id="preview"> </div> </div> </div>', 'app,[data-is="app"]{ display: block; }', '', function (opts) {
 	    var _this = this;
 	
 	    this.copyTemplate = function (e) {
@@ -3402,8 +3402,21 @@
 	        console.log(x);
 	    }.bind(this);
 	
+	    this.templates = [{ name: 'Blog with Permissions', template: '<h1>Exampasd asd asd asd asd asd asd asd asd asd asd le1 locked</h1><h1>Example1 locked</h1><h1>Example1 locked</h1><h1>Example1 locked</h1><h1>Example1 locked</h1><h1>Example1 locked</h1>' }, { name: 'Blogpost', template: '<h1>Example2</h1>' }];
+	
+	    this.active = this.templates[0];
+	
+	    this.previewTemplate = function (e) {
+	        this.refs.preview.innerHTML = e.item.template.template;
+	    }.bind(this);
+	
 	    this.fadeIn = false;
-	    this.editor = document.querySelector('#wysiwygTextarea_ifr').contentWindow.document.querySelector('#tinymce');
+	    try {
+	        this.editor = document.querySelector('#wysiwygTextarea_ifr').contentWindow.document.querySelector('#tinymce');
+	    } catch (e) {
+	        this.editor = '';
+	        console.log('no editor');
+	    }
 	
 	    this.on('mount', function () {
 	        _this.fadeIn = true;
