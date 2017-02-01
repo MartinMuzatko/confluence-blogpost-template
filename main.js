@@ -96,7 +96,7 @@
 	
 	
 	// module
-	exports.push([module.id, "", ""]);
+	exports.push([module.id, ".app {\n  display: fixed;\n  bottom: 0;\n  left: 0;\n  margin: 0 auto;\n  width: 80%;\n  padding: 2em;\n  border: 1px solid black;\n}\n", ""]);
 	
 	// exports
 
@@ -3394,7 +3394,12 @@
 
 	/* WEBPACK VAR INJECTION */(function(riot) {'use strict';
 	
-	riot.tag2('app', '<b>TEST</b>', '', '', function (opts) {});
+	riot.tag2('app', '<div class="app"> <b onclick="{copyTemplate}">Copy current template</b> </div>', 'app,[data-is="app"]{ display: block; }', '', function (opts) {
+	    this.copyTemplate = function (e) {
+	        var x = document.querySelector('#wysiwygTextarea_ifr').contentWindow.document.querySelector('#tinymce').innerHTML;
+	        console.log(x);
+	    }.bind(this);
+	});
 	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(7)))
 
 /***/ }
